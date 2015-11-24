@@ -96,7 +96,7 @@ public class QuestionPanel extends JPanel {
 
     private ActionListener answerButtonListener(int index) {
         return e -> {
-            System.out.println(index);
+            //System.out.println(index);
             question = proxy.onAnswer(question.getAnswer(index).getValue());
             gamesPanel.updateView(proxy.getPossibleGames());
             if (question == null){

@@ -12,12 +12,17 @@ import java.util.Map;
 public class PrologProxy {
 
     public Question loadEngine(){
-        String consult = "consult('C:/Users/Ucash/Documents/AR/game_expert.pl')";
+        String consult = "consult('D:/Projekty/SystemyEkspertowe/projekt1.pl')";
         Query.allSolutions(consult);
-        String start = "zagraj(X)";
-        Map<String,Term> result = Query.oneSolution(start);
-        System.out.print(result.get("X").name());
-        return QuestionSet.getInstance().findQuestion(result.get("X").name());
+        Map<String,Term> result = Query.oneSolution("wykonaj.");
+        if (result.size() ==0) {
+            System.out.println("pusta");
+        }
+        for (Map.Entry<String, Term> entry: result.entrySet()) {
+           // System.out.println(entry.getKey() + " " + entry.getValue().toString());
+        }
+        //return QuestionSet.getInstance().findQuestion(result.get("X").name());
+        return null;
     }
 
     public Question onAnswer(String answer){
