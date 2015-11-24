@@ -22,10 +22,12 @@ public class QuestionPanel extends JPanel {
     private Question question;
     private PrologProxy proxy;
 
-    public QuestionPanel(GamesPanel gamesPanel){
+    public QuestionPanel(GamesPanel gamesPanel, String path){
         super();
         buildView();
         this.gamesPanel = gamesPanel;
+        this.gamesPanel.setRestartButtonListener(restart());
+        proxy = new PrologProxy(path);
     }
 
     public void updateView(){
@@ -96,11 +98,10 @@ public class QuestionPanel extends JPanel {
 
     private ActionListener answerButtonListener(int index) {
         return e -> {
-            //System.out.println(index);
-            question = proxy.onAnswer(question.getAnswer(index).getValue());
+            question = proxy.onAnswer(question.getAnswer(index).getValue(), question);
             gamesPanel.updateView(proxy.getPossibleGames());
             if (question == null){
-                questionLabel.setText("NIE MA WIĘCEJ PYTAŃ\nPROPOZYCJA W PRAWYM PANELU");
+                questionLabel.setText("<html>NIE MA WIĘCEJ PYTAŃ<br>PROPOZYCJA W PRAWYM PANELU");
                 setButtonsVisibility(false);
                 questionPanel.add(startButton);
                 this.invalidate();
@@ -117,8 +118,16 @@ public class QuestionPanel extends JPanel {
             this.invalidate();
             this.validate();
             setElementsVisibility(true);
-            proxy = new PrologProxy();
             question = proxy.loadEngine();
+            updateView();
+        };
+    }
+
+    private ActionListener restart() {
+        return e -> {
+            question = proxy.restart();
+            gamesPanel.clean();
+            setElementsVisibility(true);
             updateView();
         };
     }

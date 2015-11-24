@@ -5,8 +5,8 @@ import java.awt.*;
 
 public class GameExpertFrame extends JFrame {
 
-    private static final Dimension FRAME_SIZE = new Dimension(400, 400);
-    private static final int SPLIT_DIVIDER_LOCATION = 250;
+    private static final Dimension FRAME_SIZE = new Dimension(500, 500);
+    private static final int SPLIT_DIVIDER_LOCATION = 300;
 
     private static final GameExpertFrame instance = new GameExpertFrame();
 
@@ -21,10 +21,10 @@ public class GameExpertFrame extends JFrame {
         return instance;
     }
 
-    public void open() {
+    public void open(String path) {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         gamesPanel = new GamesPanel();
-        questionPanel = new QuestionPanel(gamesPanel);
+        questionPanel = new QuestionPanel(gamesPanel, path);
         setContentPane(createSplitPanel());
         setSize(FRAME_SIZE);
         setVisible(true);

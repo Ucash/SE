@@ -1,34 +1,42 @@
 package gui;
 
 import common.game.Game;
+
+import java.awt.event.ActionListener;
 import java.util.List;
 import javax.swing.*;
-import java.awt.*;
 
 public class GamesPanel extends JPanel {
 
-    private JPanel gamesPanel;
+    JLabel answerLabel;
+    JButton restartButton;
 
     public GamesPanel(){
         super();
-        gamesPanel = new JPanel(new GridLayout(0, 1));
-        this.add(gamesPanel);
+        answerLabel = new JLabel("");
+        answerLabel.setHorizontalAlignment(JLabel.CENTER);
+        restartButton = new JButton("Zapytaj ponownie!");
+        this.add(restartButton);
+        this.add(answerLabel);
+    }
+
+    public void setRestartButtonListener(ActionListener listener){
+        restartButton.addActionListener(listener);
     }
 
     public void updateView(List<Game> games) {
-        JPanel newGamesPanel = new JPanel(new GridLayout(0, 1));
         if (games.isEmpty()){
-            JLabel gameLabel = new JLabel("Nie znaleziono :(");
-            newGamesPanel.add(gameLabel);
+            answerLabel.setText("Nie znaleziono :(");
+            return;
         }
+        StringBuilder answer = new StringBuilder("<html>");
         for (Game game : games) {
-            JLabel gameLabel = new JLabel(game.getDisplayName());
-            gameLabel.setHorizontalAlignment(JLabel.CENTER);
-            newGamesPanel.add(gameLabel);
+            answer.append(String.format("%s<br>", game.getDisplayName()));
         }
-        this.remove(gamesPanel);
-        gamesPanel = newGamesPanel;
-        this.add(gamesPanel);
-        this.invalidate();
+        answerLabel.setText(answer.toString());
+    }
+
+    public void clean() {
+        answerLabel.setText("");
     }
 }

@@ -11,29 +11,26 @@ public class QuestionSet {
         return instance;
     }
 
-    public Question findQuestion(String engineQuestion) {
-        return questions.get(engineQuestion);
-    }
-
     private List<Question> prepareQuestions() {
         return new LinkedList<>(Arrays.asList(
-                createQuestion("dluga", "W jak d³ug¹ grê chcesz zagraæ?", createLongAnswers()),
-                createQuestion("osobowa", "Ilo osobowa gra Ciê interesuje?", createPersonAnswers()),
-                createQuestion("losowa", "Jaki stopieñ losowoœci Ciê interesuje?", createRandomAnswers()),
-                createQuestion("nowa", "Czy chcesz, aby gra by³a wydana po 2000 roku?", createDefaultAnswers()),
-                createQuestion("turowa", "Czy chcesz zagraæ w grê turow¹?", createDefaultAnswers()),
-                createQuestion("rywalizacyjna", "Czy chcesz zagraæ w grê rywalizacyjn¹?", createDefaultAnswers()),
-                createQuestion("familijna", "Czy chcesz zagraæ w grê familijn¹?", createDefaultAnswers()),
-                createQuestion("zabawna", "Czy chcesz zagraæ w grê zabawn¹?", createDefaultAnswers()),
-                createQuestion("prosta", "Czy chcesz zagraæ w grê z nieskomplikowanymi zadami?", createDefaultAnswers()),
-                createQuestion("onlne", "Czy chcesz zagraæ w grê online?", createDefaultAnswers()),
-                createQuestion("realistyczna", "Czy chcesz zagraæ w grê realistyczn¹?", createDefaultAnswers()),
-                createQuestion("planszowa", "Czy chcesz zagraæ w grê planszow¹?", createDefaultAnswers()),
-                createQuestion("kreatywna", "Czy chcesz zagraæ w grê kreatywn¹?", createDefaultAnswers()),
-                createQuestion("umys³owa", "Czy chcesz zagraæ w grê umys³ow¹?", createDefaultAnswers()),
-                createQuestion("dynamiczna", "Czy chcesz zagraæ w grê dynamiczn¹?", createDefaultAnswers()),
-                createQuestion("grupowa", "Czy chcesz zagraæ w grê grupow¹?", createDefaultAnswers()),
-                createQuestion("fabularna", "Czy chcesz zagraæ w grê fabularn¹?", createDefaultAnswers())
+                createQuestion("onlne", "Czy chcesz zagraÄ‡ w grÄ™ online?", createDefaultAnswers()),
+                createQuestion("komputerowa", "Czy chcesz zagraÄ‡ w grÄ™ komputerowÄ…?", createDefaultAnswers()),
+                createQuestion("dluga", "W jak dÅ‚ugÄ… grÄ™ chcesz zagraÄ‡?", createLongAnswers()),
+                createQuestion("osobowa", "Ilo osobowa gra CiÄ™ interesuje?", createPersonAnswers()),
+                createQuestion("losowa", "Jaki stopieÅ„ losowoÅ›ci CiÄ™ interesuje?", createRandomAnswers()),
+                createQuestion("nowa", "Czy chcesz, aby gra byÅ‚a wydana po 2000 roku?", createDefaultAnswers()),
+                createQuestion("turowa", "Czy chcesz zagraÄ‡ w grÄ™ turowÄ…?", createDefaultAnswers()),
+                createQuestion("rywalizacyjna", "Czy chcesz zagraÄ‡ w grÄ™ rywalizacyjnÄ…?", createDefaultAnswers()),
+                createQuestion("familijna", "Czy chcesz zagraÄ‡ w grÄ™ familijnÄ…?", createDefaultAnswers()),
+                createQuestion("zabawna", "Czy chcesz zagraÄ‡ w grÄ™ zabawnÄ…?", createDefaultAnswers()),
+                createQuestion("prosta", "Czy chcesz zagraÄ‡ w grÄ™ z nieskomplikowanymi zadami?", createDefaultAnswers()),
+                createQuestion("realistyczna", "Czy chcesz zagraÄ‡ w grÄ™ realistycznÄ…?", createDefaultAnswers()),
+                createQuestion("planszowa", "Czy chcesz zagraÄ‡ w grÄ™ planszowÄ…?", createDefaultAnswers()),
+                createQuestion("kreatywna", "Czy chcesz zagraÄ‡ w grÄ™ kreatywnÄ…?", createDefaultAnswers()),
+                createQuestion("umyslowa", "Czy chcesz zagraÄ‡ w grÄ™ umysÅ‚owÄ…?", createDefaultAnswers()),
+                createQuestion("dynamiczna", "Czy chcesz zagraÄ‡ w grÄ™ dynamicznÄ…?", createDefaultAnswers()),
+                createQuestion("grupowa", "Czy chcesz zagraÄ‡ w grÄ™ grupowÄ…?", createDefaultAnswers()),
+                createQuestion("fabularna", "Czy chcesz zagraÄ‡ w grÄ™ fabularnÄ…?", createDefaultAnswers())
         ));
     }
 
@@ -45,7 +42,7 @@ public class QuestionSet {
         List<Answer> answers = new ArrayList<>();
         answers.add(new Answer("t", "tak"));
         answers.add(new Answer("n", "nie"));
-        answers.add(new Answer("o", "obojêtne"));
+        answers.add(new Answer("o", "obojÄ™tne"));
         return answers;
     }
 
@@ -53,8 +50,8 @@ public class QuestionSet {
         List<Answer> answers = new ArrayList<>();
         answers.add(new Answer("0", "nielosowa"));
         answers.add(new Answer("1", "pseudolosowa"));
-        answers.add(new Answer("2", "w pe³ni losowa"));
-        answers.add(new Answer("o", "obojêtne"));
+        answers.add(new Answer("2", "w peÅ‚ni losowa"));
+        answers.add(new Answer("o", "obojÄ™tne"));
         return answers;
     }
 
@@ -63,7 +60,7 @@ public class QuestionSet {
         answers.add(new Answer("0", "jednoosobowa"));
         answers.add(new Answer("1", "dwuosobowa"));
         answers.add(new Answer("2", "wieloosobowa"));
-        answers.add(new Answer("o", "obojêtne"));
+        answers.add(new Answer("o", "obojÄ™tne"));
         return answers;
     }
 
@@ -71,8 +68,8 @@ public class QuestionSet {
         List<Answer> answers = new ArrayList<>();
         answers.add(new Answer("0", "0-2 godzin"));
         answers.add(new Answer("1", "1-4 godzin"));
-        answers.add(new Answer("2", "powy¿ej 4 godzin"));
-        answers.add(new Answer("o", "obojêtne"));
+        answers.add(new Answer("2", "powyÅ¼ej 4 godzin"));
+        answers.add(new Answer("o", "obojÄ™tneÄ™tne"));
         return answers;
     }
 
@@ -82,5 +79,9 @@ public class QuestionSet {
 
     private QuestionSet() {
         prepareQuestions().forEach(q -> questions.put(q.getEngineQuestion(), q));
+    }
+
+    public List<Question> findAll() {
+        return new ArrayList<>(questions.values());
     }
 }
