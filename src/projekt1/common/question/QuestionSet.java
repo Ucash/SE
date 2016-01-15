@@ -13,7 +13,7 @@ public class QuestionSet {
 
     private List<Question> prepareQuestions() {
         return new LinkedList<>(Arrays.asList(
-                createQuestion("onlne", "Czy chcesz zagrać w grę online?", createDefaultAnswers()),
+                createQuestion("online", "Czy chcesz zagrać w grę online?", createDefaultAnswers()),
                 createQuestion("komputerowa", "Czy chcesz zagrać w grę komputerową?", createDefaultAnswers()),
                 createQuestion("dluga", "W jak długą grę chcesz zagrać?", createLongAnswers()),
                 createQuestion("osobowa", "Ilo osobowa gra Cię interesuje?", createPersonAnswers()),

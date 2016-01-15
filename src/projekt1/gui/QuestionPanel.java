@@ -1,5 +1,6 @@
 package projekt1.gui;
 
+import common.game.Game;
 import common.gui.AbstractQuestionPanel;
 import common.gui.GamesPanel;
 import projekt1.common.question.Question;
@@ -101,17 +102,24 @@ public class QuestionPanel extends AbstractQuestionPanel {
     private ActionListener answerButtonListener(int index) {
         return e -> {
             question = proxy.onAnswer(question.getAnswer(index).getValue(), question);
-            gamesPanel.updateView(proxy.getPossibleGames());
+            java.util.List<Game> games = proxy.getPossibleGames();
+            gamesPanel.updateView(games);
             if (question == null){
-                questionLabel.setText("<html>NIE MA WIĘCEJ PYTAŃ<br>PROPOZYCJA W PRAWYM PANELU");
-                setButtonsVisibility(false);
-                questionPanel.add(startButton);
-                this.invalidate();
-                this.validate();
-                return;
+                finishAskingWithResponse("<html>NIE MA WIĘCEJ PYTAŃ<br>PROPOZYCJA W PRAWYM PANELU");
+            } else if (games.size() < 2){
+                finishAskingWithResponse("<html>PROPOZYCJA W PRAWYM PANELU");
+            } else {
+                updateView();
             }
-            updateView();
         };
+    }
+
+    private void finishAskingWithResponse(String s) {
+        questionLabel.setText(s);
+        setButtonsVisibility(false);
+        questionPanel.add(startButton);
+        this.invalidate();
+        this.validate();
     }
 
     private ActionListener start() {
