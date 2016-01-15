@@ -1,11 +1,11 @@
-package proxy;
+package projekt1.proxy;
 
 import common.game.Game;
-import common.game.GameSet;
-import common.question.Question;
-import common.question.QuestionSet;
 import org.jpl7.Query;
 import org.jpl7.Term;
+import projekt1.common.game.GameSet;
+import projekt1.common.question.Question;
+import projekt1.common.question.QuestionSet;
 
 import java.util.ArrayList;
 import java.util.List;

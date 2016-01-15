@@ -1,66 +1,70 @@
-package gui;
+package projekt2.gui;
 
-import proxy.PrologProxy;
-import common.question.Question;
+import common.gui.AbstractQuestionPanel;
+import common.gui.GamesPanel;
+import projekt2.proxy.GenieProxy;
+import projekt2.question.Question;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.Hashtable;
 
-public class QuestionPanel extends JPanel {
-
+public class QuestionPanel extends AbstractQuestionPanel {
     private JPanel questionPanel;
     private JLabel questionLabel;
     private JButton startButton;
+    private JSlider slider;
+    private JButton okButton;
 
-    private JButton firstOptionButton;
-    private JButton secondOptionButton;
-    private JButton thirdOptionButton;
-    private JButton fourthOptionButton;
 
     private GamesPanel gamesPanel;
     private Question question;
-    private PrologProxy proxy;
+    private GenieProxy proxy;
 
-    public QuestionPanel(GamesPanel gamesPanel, String path){
+    public QuestionPanel(GamesPanel gamesPanel, String path) {
         super();
         buildView();
         this.gamesPanel = gamesPanel;
         this.gamesPanel.setRestartButtonListener(restart());
-        proxy = new PrologProxy(path);
+        proxy = new GenieProxy(path);
+        gamesPanel.updateView(proxy.updateGames());
+        setButtonsVisibility(false);
     }
 
-    public void updateView(){
+    public void updateView() {
         questionLabel.setText(question.getFullQuestionText());
-        firstOptionButton.setText(question.getAnswer(0).getDisplayValue());
-        secondOptionButton.setText(question.getAnswer(1).getDisplayValue());
-        thirdOptionButton.setText(question.getAnswer(2).getDisplayValue());
-        if (question.getAnswersCount() > 3){
-            fourthOptionButton.setVisible(true);
-            fourthOptionButton.setText(question.getAnswer(3).getDisplayValue());
-        } else {
-            fourthOptionButton.setVisible(false);
-        }
+
     }
 
     private void buildView() {
         questionPanel = new JPanel(new GridLayout(0, 1));
         questionPanel.setPreferredSize(new Dimension(230, 500));
 
-        startButton = buildButton("KLIKNIJ ABY ROZPOCZÄ„C", start());
+        startButton = buildButton("KLIKNIJ ABY ROZPOCZ¥C", start());
         questionPanel.add(startButton);
         questionLabel = buildLabel("Question");
         questionPanel.add(questionLabel);
 
         JPanel answerPanel = new JPanel(new GridLayout(0, 1));
-        firstOptionButton = buildButton("1. opcja", answerButtonListener(0));
-        answerPanel.add(firstOptionButton);
-        secondOptionButton = buildButton("2. opcja", answerButtonListener(1));
-        answerPanel.add(secondOptionButton);
-        thirdOptionButton = buildButton("3. opcja", answerButtonListener(2));
-        answerPanel.add(thirdOptionButton);
-        fourthOptionButton = buildButton("4. opcja", answerButtonListener(3));
-        answerPanel.add(fourthOptionButton);
+        JLabel value = new JLabel("0,50 - 0,50");
+
+        slider = new JSlider(JSlider.HORIZONTAL, 0, 100, 50);
+//Create the label table
+        Hashtable labelTable = new Hashtable();
+        labelTable.put(new Integer(0), new JLabel("TAK"));
+        labelTable.put(new Integer(50), value);
+        labelTable.put(new Integer(100), new JLabel("NIE"));
+        slider.setLabelTable(labelTable);
+        slider.addChangeListener(e -> {
+            double v = slider.getValue() / 100.0;
+            value.setText(String.format("%.2f - %.2f", v, 1 - v));
+        });
+
+        slider.setPaintLabels(true);
+        okButton = buildButton("OK", answerButtonListener());
+        answerPanel.add(slider);
+        answerPanel.add(okButton);
         answerPanel.add(Box.createHorizontalStrut(5));
 
         questionPanel.add(answerPanel);
@@ -71,16 +75,9 @@ public class QuestionPanel extends JPanel {
         this.validate();
     }
 
-    private void setElementsVisibility(boolean isVisible){
+    private void setElementsVisibility(boolean isVisible) {
         questionLabel.setVisible(isVisible);
         setButtonsVisibility(isVisible);
-    }
-
-    private void setButtonsVisibility(boolean isVisible){
-        firstOptionButton.setVisible(isVisible);
-        secondOptionButton.setVisible(isVisible);
-        thirdOptionButton.setVisible(isVisible);
-        fourthOptionButton.setVisible(isVisible);
     }
 
     private JLabel buildLabel(String text) {
@@ -96,12 +93,15 @@ public class QuestionPanel extends JPanel {
         return button;
     }
 
-    private ActionListener answerButtonListener(int index) {
+
+    private ActionListener answerButtonListener() {
         return e -> {
-            question = proxy.onAnswer(question.getAnswer(index).getValue(), question);
-            gamesPanel.updateView(proxy.getPossibleGames());
-            if (question == null){
-                questionLabel.setText("<html>NIE MA WIÄ˜CEJ PYTAÅƒ<br>PROPOZYCJA W PRAWYM PANELU");
+            double value = slider.getValue() / 100.0;
+            double[] values = {value, 1.0 - value};
+            question = proxy.onAnswer(question, values);
+            gamesPanel.updateView(proxy.updateGames());
+            if (question == null) {
+                questionLabel.setText("<html>NIE MA WIÊCEJ PYTAÑ<br>PROPOZYCJA W PRAWYM PANELU");
                 setButtonsVisibility(false);
                 questionPanel.add(startButton);
                 this.invalidate();
@@ -118,7 +118,8 @@ public class QuestionPanel extends JPanel {
             this.invalidate();
             this.validate();
             setElementsVisibility(true);
-            question = proxy.loadEngine();
+            question = proxy.restart();
+            question = proxy.getNextQuestion();
             updateView();
         };
     }
@@ -130,5 +131,10 @@ public class QuestionPanel extends JPanel {
             setElementsVisibility(true);
             updateView();
         };
+    }
+
+    public void setButtonsVisibility(boolean buttonsVisibility) {
+        this.slider.setVisible(buttonsVisibility);
+        this.okButton.setVisible(buttonsVisibility);
     }
 }

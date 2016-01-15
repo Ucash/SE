@@ -1,4 +1,6 @@
-package common.game;
+package projekt1.common.game;
+
+import common.game.Game;
 
 import java.util.*;
 

@@ -1,16 +1,16 @@
-package gui;
+package common.gui;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class GameExpertFrame extends JFrame {
 
-    private static final Dimension FRAME_SIZE = new Dimension(500, 500);
+    private static final Dimension FRAME_SIZE = new Dimension(600, 600);
     private static final int SPLIT_DIVIDER_LOCATION = 300;
 
     private static final GameExpertFrame instance = new GameExpertFrame();
 
-    private QuestionPanel questionPanel;
+    private AbstractQuestionPanel questionPanel;
     private GamesPanel gamesPanel;
 
     private GameExpertFrame() {
@@ -21,10 +21,10 @@ public class GameExpertFrame extends JFrame {
         return instance;
     }
 
-    public void open(String path) {
+    public void open(String path, AbstractQuestionPanel questionPanel, GamesPanel gamesPanel) {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        gamesPanel = new GamesPanel();
-        questionPanel = new QuestionPanel(gamesPanel, path);
+        this.gamesPanel = gamesPanel;
+        this.questionPanel = questionPanel;
         setContentPane(createSplitPanel());
         setSize(FRAME_SIZE);
         setVisible(true);

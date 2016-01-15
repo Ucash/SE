@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<smile version="1.0" id="Network1" numsamples="1000" discsamples="10000">
+	<nodes>
+		<cpt id="nowa">
+			<state id="Tak" />
+			<state id="Nie" />
+			<probabilities>0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="rywalizacyjna">
+			<state id="Tak" />
+			<state id="Nie" />
+			<probabilities>0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="umyslowa">
+			<state id="Tak" />
+			<state id="Nie" />
+			<probabilities>0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="fabularna">
+			<state id="Tak" />
+			<state id="Nie" />
+			<probabilities>0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="kreatywna">
+			<state id="Tak" />
+			<state id="Nie" />
+			<probabilities>0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="RTS">
+			<state id="Tak" />
+			<state id="Nie" />
+			<parents>umyslowa fabularna kreatywna</parents>
+			<probabilities>0.77 0.23 0.63 0.37 0.6 0.4 0.47 0.53 0.53 0.47 0.4 0.6 0.37 0.63 0.23 0.77</probabilities>
+		</cpt>
+		<cpt id="dluga">
+			<state id="Tak" />
+			<state id="Nie" />
+			<probabilities>0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="turowa">
+			<state id="Tak" />
+			<state id="Nie" />
+			<probabilities>0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="Age_Of_Empires_2">
+			<state id="Tak" />
+			<state id="Nie" />
+			<parents>nowa rywalizacyjna RTS dluga turowa</parents>
+			<probabilities>0.53 0.47 0.73 0.27 0.49 0.51 0.69 0.31 0.33 0.67 0.53 0.47 0.29 0.71 0.49 0.51 0.41 0.59 0.61 0.39 0.37 0.63 0.57 0.43 0.21 0.79 0.41 0.59 0.17 0.83 0.37 0.63 0.63 0.37 0.83 0.17 0.59 0.41 0.79 0.21 0.43 0.57 0.63 0.37 0.39 0.61 0.59 0.41 0.51 0.49 0.71 0.29 0.47 0.53 0.67 0.33 0.31 0.69 0.51 0.49 0.27 0.73 0.47 0.53</probabilities>
+		</cpt>
+		<cpt id="Heroes_3">
+			<state id="Tak" />
+			<state id="Nie" />
+			<parents>nowa rywalizacyjna RTS turowa dluga</parents>
+			<probabilities>0.76 0.24 0.6 0.4 0.5600000000000001 0.44 0.4 0.6 0.5600000000000001 0.44 0.4 0.6 0.36 0.64 0.2 0.8 0.6 0.4 0.44 0.5600000000000001 0.4 0.6 0.24 0.76 0.4 0.6 0.24 0.76 0.2 0.8 0.04 0.96 0.96 0.04 0.8 0.2 0.76 0.24 0.6 0.4 0.76 0.24 0.6 0.4 0.5600000000000001 0.44 0.4 0.6 0.8 0.2 0.64 0.36 0.6 0.4 0.44 0.5600000000000001 0.6 0.4 0.44 0.5600000000000001 0.4 0.6 0.24 0.76</probabilities>
+		</cpt>
+		<cpt id="Civilization_5">
+			<state id="Tak" />
+			<state id="Nie" />
+			<parents>RTS dluga turowa rywalizacyjna nowa</parents>
+			<probabilities>0.84 0.16 0.6800000000000001 0.32 0.8 0.2 0.64 0.36 0.64 0.36 0.48 0.52 0.6 0.4 0.44 0.5600000000000001 0.76 0.24 0.6 0.4 0.72 0.28 0.5600000000000001 0.44 0.5600000000000001 0.44 0.4 0.6 0.52 0.48 0.36 0.64 0.64 0.36 0.48 0.52 0.6 0.4 0.44 0.5600000000000001 0.44 0.5600000000000001 0.28 0.72 0.4 0.6 0.24 0.76 0.5600000000000001 0.44 0.4 0.6 0.52 0.48 0.36 0.64 0.36 0.64 0.2 0.8 0.32 0.6800000000000001 0.16 0.84</probabilities>
+		</cpt>
+		<cpt id="familijna">
+			<state id="Tak" />
+			<state id="Nie" />
+			<probabilities>0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="Theme_Park_Worlld">
+			<state id="Tak" />
+			<state id="Nie" />
+			<parents>RTS turowa familijna</parents>
+			<probabilities>0.6 0.4 0.4 0.6 0.9300000000000001 0.07000000000000001 0.73 0.27 0.27 0.73 0.07000000000000001 0.9300000000000001 0.6 0.4 0.4 0.6</probabilities>
+		</cpt>
+		<cpt id="Grupowa_gra_rywalizacyjna">
+			<state id="Tak" />
+			<state id="Nie" />
+			<parents>turowa dluga familijna rywalizacyjna</parents>
+			<probabilities>0.35 0.65 0.1 0.9 0.58 0.42 0.32 0.6800000000000001 0.42 0.58 0.18 0.82 0.65 0.35 0.4 0.6 0.6 0.4 0.35 0.65 0.82 0.18 0.58 0.42 0.6800000000000001 0.32 0.42 0.58 0.9 0.1 0.65 0.35</probabilities>
+		</cpt>
+		<cpt id="online">
+			<state id="Tak" />
+			<state id="Nie" />
+			<probabilities>0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="realistyczna">
+			<state id="Tak" />
+			<state id="Nie" />
+			<probabilities>0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="MOBA">
+			<state id="Tak" />
+			<state id="Nie" />
+			<parents>Grupowa_gra_rywalizacyjna online umyslowa realistyczna</parents>
+			<probabilities>0.51 0.49 0.64 0.36 0.41 0.59 0.54 0.46 0.71 0.29 0.84 0.16 0.61 0.39 0.74 0.26 0.26 0.74 0.39 0.61 0.16 0.84 0.29 0.71 0.46 0.54 0.59 0.41 0.36 0.64 0.49 0.51</probabilities>
+		</cpt>
+		<cpt id="League_Of_Legends">
+			<state id="Tak" />
+			<state id="Nie" />
+			<parents>MOBA nowa</parents>
+			<probabilities>0.95 0.05 0.55 0.45 0.45 0.55 0.05 0.95</probabilities>
+		</cpt>
+		<cpt id="DOTa">
+			<state id="Tak" />
+			<state id="Nie" />
+			<parents>MOBA nowa</parents>
+			<probabilities>0.6 0.4 0.9 0.1 0.1 0.9 0.4 0.6</probabilities>
+		</cpt>
+		<cpt id="MMORPG">
+			<state id="Tak" />
+			<state id="Nie" />
+			<parents>familijna turowa</parents>
+			<probabilities>0.05 0.95 0.45 0.55 0.55 0.45 0.95 0.05</probabilities>
+		</cpt>
+		<cpt id="prosta">
+			<state id="Tak" />
+			<state id="Nie" />
+			<probabilities>0.5 0.5</probabilities>
+		</cpt>
+		<cpt id="Tibia">
+			<state id="Tak" />
+			<state id="Nie" />
+			<parents>MMORPG nowa prosta</parents>
+			<probabilities>0.6800000000000001 0.32 0.38 0.62 0.95 0.05 0.65 0.35 0.35 0.65 0.05 0.95 0.62 0.38 0.32 0.6800000000000001</probabilities>
+		</cpt>
+		<cpt id="Wow">
+			<state id="Tak" />
+			<state id="Nie" />
+			<parents>MMORPG nowa prosta</parents>
+			<probabilities>0.6 0.4 0.9 0.1 0.43 0.57 0.73 0.27 0.27 0.73 0.57 0.43 0.1 0.9 0.4 0.6</probabilities>
+		</cpt>
+		<cpt id="The_Sims">
+			<state id="Tak" />
+			<state id="Nie" />
+			<parents>online RTS dluga familijna</parents>
+			<probabilities>0.59 0.41 0.39 0.61 0.54 0.46 0.34 0.66 0.46 0.54 0.26 0.74 0.41 0.59 0.21 0.79 0.79 0.21 0.59 0.41 0.74 0.26 0.54 0.46 0.66 0.34 0.46 0.54 0.61 0.39 0.41 0.59</probabilities>
+		</cpt>
+		<cpt id="FPS">
+			<state id="Tak" />
+			<state id="Nie" />
+			<parents>Grupowa_gra_rywalizacyjna umyslowa kreatywna</parents>
+			<probabilities>0.4 0.6 0.7 0.3 0.63 0.37 0.9300000000000001 0.07000000000000001 0.07000000000000001 0.9300000000000001 0.37 0.63 0.3 0.7 0.6 0.4</probabilities>
+		</cpt>
+		<cpt id="CS">
+			<state id="Tak" />
+			<state id="Nie" />
+			<parents>FPS realistyczna online</parents>
+			<probabilities>0.89 0.11 0.76 0.24 0.69 0.31 0.5600000000000001 0.44 0.64 0.36 0.51 0.49 0.44 0.5600000000000001 0.31 0.69</probabilities>
+		</cpt>
+		<cpt id="Quake">
+			<state id="Tak" />
+			<state id="Nie" />
+			<parents>FPS nowa</parents>
+			<probabilities>0.6 0.4 0.9 0.1 0.1 0.9 0.4 0.6</probabilities>
+		</cpt>
+		<cpt id="CallOfDuty">
+			<state id="Tak" />
+			<state id="Nie" />
+			<parents>FPS realistyczna online</parents>
+			<probabilities>0.73 0.27 0.87 0.13 0.47 0.53 0.6 0.4 0.4 0.6 0.53 0.47 0.13 0.87 0.27 0.73</probabilities>
+		</cpt>
+		<cpt id="Dyna">
+			<state id="Tak" />
+			<state id="Nie" />
+			<parents>nowa turowa rywalizacyjna dluga prosta</parents>
+			<probabilities>0.22 0.78 0.38 0.62 0.38 0.62 0.54 0.46 0.08 0.92 0.24 0.76 0.24 0.76 0.4 0.6 0.42 0.58 0.58 0.42 0.58 0.42 0.74 0.26 0.28 0.72 0.44 0.5600000000000001 0.44 0.5600000000000001 0.6 0.4 0.4 0.6 0.5600000000000001 0.44 0.5600000000000001 0.44 0.72 0.28 0.26 0.74 0.42 0.58 0.42 0.58 0.58 0.42 0.6 0.4 0.76 0.24 0.76 0.24 0.92 0.08 0.46 0.54 0.62 0.38 0.62 0.38 0.78 0.22</probabilities>
+		</cpt>
+	</nodes>
+	<extensions>
+		<genie version="1.0" app="GeNIe 2.0.5590.0" name="Network1" faultnameformat="nodestate">
+			<node id="Age_Of_Empires_2">
+				<name>Age Of Empires 2</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>18 167 107 222</position>
+			</node>
+			<node id="Heroes_3">
+				<name>Heroes 3</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>111 165 200 220</position>
+			</node>
+			<node id="Civilization_5">
+				<name>Civilization 5</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>204 163 293 218</position>
+			</node>
+			<node id="Theme_Park_Worlld">
+				<name>Theme Park Worlld</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>300 166 389 221</position>
+			</node>
+			<node id="League_Of_Legends">
+				<name>League Of Legends</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>801 169 890 224</position>
+			</node>
+			<node id="DOTa">
+				<name>DOTa</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>700 164 789 219</position>
+			</node>
+			<node id="Tibia">
+				<name>Tibia</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>605 161 694 216</position>
+			</node>
+			<node id="Wow">
+				<name>Wow</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>506 165 595 220</position>
+			</node>
+			<node id="The_Sims">
+				<name>The Sims</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>408 164 497 219</position>
+			</node>
+			<node id="CS">
+				<name>CS</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>892 167 981 222</position>
+			</node>
+			<node id="RTS">
+				<name>RTS</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>257 412 346 467</position>
+			</node>
+			<node id="MOBA">
+				<name>MOBA</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>742 346 831 401</position>
+			</node>
+			<node id="MMORPG">
+				<name>MMORPG</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>579 337 668 392</position>
+			</node>
+			<node id="FPS">
+				<name>FPS</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>981 344 1070 399</position>
+			</node>
+			<node id="Quake">
+				<name>Quake</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>993 166 1082 221</position>
+			</node>
+			<node id="CallOfDuty">
+				<name>CallOfDuty</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1090 170 1179 225</position>
+			</node>
+			<node id="Grupowa_gra_rywalizacyjna">
+				<name>Grupowa gra rywalizacyjna</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>916 492 1005 547</position>
+			</node>
+			<node id="dluga">
+				<name>dluga</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>945 668 1034 723</position>
+			</node>
+			<node id="nowa">
+				<name>nowa</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>181 663 270 718</position>
+			</node>
+			<node id="turowa">
+				<name>turowa</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>647 656 736 711</position>
+			</node>
+			<node id="rywalizacyjna">
+				<name>rywalizacyjna</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>44 651 133 706</position>
+			</node>
+			<node id="familijna">
+				<name>familijna</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>744 661 833 716</position>
+			</node>
+			<node id="prosta">
+				<name>prosta</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1123 658 1212 713</position>
+			</node>
+			<node id="online">
+				<name>online</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>464 654 553 709</position>
+			</node>
+			<node id="realistyczna">
+				<name>realistyczna</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>845 657 934 712</position>
+			</node>
+			<node id="umyslowa">
+				<name>umyslowa</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1033 674 1122 729</position>
+			</node>
+			<node id="fabularna">
+				<name>fabularna</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>277 650 366 705</position>
+			</node>
+			<node id="kreatywna">
+				<name>kreatywna</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>547 655 636 710</position>
+			</node>
+			<node id="Dyna">
+				<name>Dyna</name>
+				<interior color="e5f6f7" />
+				<outline color="000080" />
+				<font color="000000" name="Arial" size="8" />
+				<position>1183 175 1272 230</position>
+			</node>
+		</genie>
+	</extensions>
+</smile>

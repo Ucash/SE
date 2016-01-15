@@ -1,4 +1,4 @@
-package common.question;
+package projekt1.common.question;
 
 import java.util.*;
 

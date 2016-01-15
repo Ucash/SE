@@ -1,10 +1,10 @@
-package gui;
+package common.gui;
 
 import common.game.Game;
 
+import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.util.List;
-import javax.swing.*;
 
 public class GamesPanel extends JPanel {
 

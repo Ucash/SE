@@ -4,6 +4,7 @@ public class Game {
 
     private String engineName;
     private String displayName;
+    private double value;
 
     public Game(String engineName, String displayName){
         this.engineName = engineName;
@@ -16,5 +17,13 @@ public class Game {
 
     public String getDisplayName(){
         return displayName;
+    }
+
+    public double getValue() {
+        return value;
+    }
+
+    public void setValue(double value) {
+        this.value = value;
     }
 }
